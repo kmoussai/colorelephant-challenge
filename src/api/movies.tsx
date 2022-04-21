@@ -1,5 +1,5 @@
 import { handleFetchError } from "../helpers";
-import { IApiResponse, IMovie } from "../types/movie";
+import { IApiResponse } from "../types/movie";
 
 interface IGetParams {
     page: number;

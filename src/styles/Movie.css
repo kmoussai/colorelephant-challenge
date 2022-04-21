@@ -10,6 +10,7 @@
     background-color: none;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
     transition: transform 0.2s; /* Animation */
+    cursor: pointer;
 }
 
 .movie-item:hover {
@@ -59,8 +60,24 @@
 @media only screen and (min-width: 1200px) {
 }
 .favourite-item {
-    background-color: red;
+    border: 1px solid grey;
+    box-shadow: rgba(70, 52, 52, 0.2) 12px 4px 12px;
 }
+
+.favourite-btn {
+    position: relative;
+    z-index: 5000;
+    width: 100%;
+    /* right: 3%; */
+    /* top: 3%; */
+    padding-right: 5px;
+    display: flex;
+    justify-content: right;
+    background-color: rgba(148, 144, 144, 0.6);
+
+    /* opacity: 0.5; */
+}
+
 .movie-poster {
     width: 100%;
     padding-bottom: 148%;
@@ -99,9 +116,4 @@
     display: flex;
     justify-content: space-between;
     font-size: 14px;
-}
-.movie-info-year {
-}
-
-.movie-info-rating {
 }
