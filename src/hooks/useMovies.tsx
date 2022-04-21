@@ -15,7 +15,7 @@ export default function useMovies(page: number) {
             .then((data) => {
                 setMovies((prevMovies) => [...prevMovies, ...data.results]);
                 setLoading(false);
-                setHasMore(data.results.length > 0);
+                setHasMore(page * data.results.length < 500); //Simple check to stop on around 500 row
             })
             .catch(() => {
                 setLoading(false);

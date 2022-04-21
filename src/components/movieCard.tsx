@@ -19,10 +19,10 @@ export default forwardRef<
         removeFromFavourites,
     } = props;
 
-    const generateTMDBUrl = (movie: IMovie) => {
+    const generateTMDBUrl = (m: IMovie) => {
         return `https://www.themoviedb.org/movie/${
-            movie.id
-        }-${movie.original_title?.replace(" ", "-")}`;
+            m.id
+        }-${m.original_title?.replace(" ", "-")}`;
     };
 
     return (

@@ -30,8 +30,6 @@ export default function Movies() {
         },
         [hasMore, loading],
     );
-    if (loading) return <p>Loading</p>;
-    if (error) return <p>fetch error</p>;
 
     const handleSort = (a: IMovie, b: IMovie) => {
         if (sortOrder === DEFAULT) return 0;
@@ -80,6 +78,7 @@ export default function Movies() {
                     );
                 })}
                 {loading && <p>loading</p>}
+                {error && <p>fetch error</p>}
             </div>
         </>
     );

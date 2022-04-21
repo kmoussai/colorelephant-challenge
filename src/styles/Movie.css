@@ -1,15 +1,18 @@
+* {
+    box-sizing: border-box;
+}
+
 .movie-item {
-    margin: 0 0.4% 2%;
-    float: left;
-    position: relative;
-    display: flex;
+    height: 100%;
+    width: 100%;
+    /* display: flex; */
     flex-direction: column;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     border: 1px solid #ddd;
     border-radius: 4px;
     background-color: none;
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
-    transition: transform 0.2s; /* Animation */
+    box-shadow: rgb(0 0 0 / 10%) 0px 4px 12px;
+    transition: transform 0.2s;
     cursor: pointer;
 }
 
@@ -20,9 +23,9 @@
 }
 
 .movie-list {
-    margin: 1% 4%;
+    width: 100%;
     display: grid;
-    gap: 5px;
+    gap: 25px;
     grid-template-columns: repeat(6, 1fr);
 }
 
@@ -68,31 +71,23 @@
     position: relative;
     z-index: 5000;
     width: 100%;
-    /* right: 3%; */
-    /* top: 3%; */
     padding-right: 5px;
     display: flex;
     justify-content: right;
     background-color: rgba(148, 144, 144, 0.6);
-
-    /* opacity: 0.5; */
 }
 
 .movie-poster {
     width: 100%;
-    padding-bottom: 148%;
     position: relative;
     overflow: hidden;
     border-radius: 4px;
 }
 .poster-img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
     width: 100%;
-    min-height: 100%;
+    height: 100%;
+    max-height: 200px;
+    object-fit: cover;
 }
 
 .movie-detail {
