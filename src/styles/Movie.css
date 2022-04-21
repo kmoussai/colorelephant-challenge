@@ -1,0 +1,105 @@
+.movie-item {
+    margin: 0 0.4% 2%;
+    float: left;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: none;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    transition: transform 0.2s; /* Animation */
+}
+
+.movie-item:hover {
+    /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+    transform: scale(1.05);
+    z-index: 5;
+}
+
+.movie-list {
+    margin: 1% 4%;
+    display: grid;
+    gap: 5px;
+    grid-template-columns: repeat(6, 1fr);
+}
+
+/*==========  Mobile First Method  ==========*/
+
+/* Custom, iPhone Retina */
+@media only screen and (min-width: 320px) {
+    .movie-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (min-width: 480px) {
+    .movie-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width: 768px) {
+    .movie-list {
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width: 992px) {
+    .movie-list {
+        grid-template-columns: repeat(6, 1fr);
+    }
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width: 1200px) {
+}
+
+.movie-poster {
+    width: 100%;
+    padding-bottom: 148%;
+    position: relative;
+    overflow: hidden;
+    border-radius: 4px;
+}
+.poster-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    min-height: 100%;
+}
+
+.movie-detail {
+    text-align: left;
+    position: relative;
+    padding: 10px 5px;
+    z-index: 3;
+}
+
+.movie-name {
+    font-size: 15px;
+    line-height: 1.3em;
+    font-weight: 400;
+    margin: 0 0 10px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.movie-info {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+}
+.movie-info-year {
+}
+
+.movie-info-rating {
+}
