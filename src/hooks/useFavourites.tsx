@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 export default function useFavourites() {
     const [favourites, setFavourites] = useState<number[]>(
-        JSON.parse(localStorage.getItem("favourites") ?? "") ?? [],
+        JSON.parse(localStorage.getItem("favourites") ?? "[]") ?? [],
     );
 
     const addToFavourites = (id: number) => {

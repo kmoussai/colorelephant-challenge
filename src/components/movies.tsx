@@ -51,7 +51,6 @@ export default function Movies() {
                         />
                     );
                 })}
-                <button onClick={() => setPage(page + 1)}>Load more</button>
                 {loading && <p>loading</p>}
             </div>
         </>
