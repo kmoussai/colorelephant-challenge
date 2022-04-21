@@ -11,7 +11,7 @@ interface IMovie {
     release_date: string;
     title: string;
     video?: boolean;
-    vote_average?: number;
+    vote_average: number;
     vote_count?: number;
 }
 
