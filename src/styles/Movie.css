@@ -58,7 +58,9 @@
 /* Large Devices, Wide Screens */
 @media only screen and (min-width: 1200px) {
 }
-
+.favourite-item {
+    background-color: red;
+}
 .movie-poster {
     width: 100%;
     padding-bottom: 148%;

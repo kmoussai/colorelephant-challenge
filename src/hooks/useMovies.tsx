@@ -23,5 +23,10 @@ export default function useMovies(page: number) {
             });
     }, [page]);
 
-    return { hasMore, error, movies, loading };
+    return {
+        hasMore,
+        error,
+        movies,
+        loading,
+    };
 }
