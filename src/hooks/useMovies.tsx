@@ -6,7 +6,6 @@ export default function useMovies(page: number) {
     const [movies, setMovies] = useState<IMovie[]>([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(false);
-    const [hasMore, setHasMore] = useState(true);
 
     useEffect(() => {
         setLoading(true);
@@ -15,7 +14,6 @@ export default function useMovies(page: number) {
             .then((data) => {
                 setMovies((prevMovies) => [...prevMovies, ...data.results]);
                 setLoading(false);
-                setHasMore(page * data.results.length < 500); //Simple check to stop on around 500 row
             })
             .catch(() => {
                 setLoading(false);
@@ -24,7 +22,6 @@ export default function useMovies(page: number) {
     }, [page]);
 
     return {
-        hasMore,
         error,
         movies,
         loading,

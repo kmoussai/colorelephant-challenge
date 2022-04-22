@@ -1,4 +1,4 @@
-import { useCallback, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import useFavourites from "../hooks/useFavourites";
 import useMovies from "../hooks/useMovies";
 import MovieCard from "./movieCard";
@@ -9,12 +9,18 @@ import {
 import { IMovie } from "../types/movie";
 import { ASC, DEFAULT, DESC } from "../constants";
 
+const MAX_MOVIES = Number(process.env.REACT_APP_MAX_MOVIES) ?? 500;
+
 export default function Movies() {
     const [page, setPage] = useState(1);
-    const { loading, error, movies, hasMore } = useMovies(page);
+    const { loading, error, movies } = useMovies(page);
     const [sortOrder, setSortOrder] = useState<number>(DEFAULT);
     const { addToFavourites, favourites, removeFromFavourites } =
         useFavourites();
+
+    useEffect(() => {
+        console.log(movies.length);
+    }, [movies]);
     // Detect scrolling to fetch new elements
     const observer = useRef<IntersectionObserver>();
     const lastMovie = useCallback(
@@ -22,13 +28,13 @@ export default function Movies() {
             if (loading) return;
             if (observer.current) observer.current.disconnect();
             observer.current = new IntersectionObserver((entries) => {
-                if (entries[0].isIntersecting && hasMore) {
+                if (entries[0].isIntersecting && movies.length < MAX_MOVIES) {
                     setPage((prevPage) => prevPage + 1);
                 }
             });
             if (movieCard) observer.current.observe(movieCard);
         },
-        [hasMore, loading],
+        [loading, movies],
     );
 
     const handleSort = (a: IMovie, b: IMovie) => {
@@ -47,7 +53,7 @@ export default function Movies() {
                 }}
             >
                 <div onClick={() => setSortOrder((sortOrder + 1) % 3)}>
-                    {sortOrder === ASC ? (
+                    {sortOrder === DESC ? (
                         <HiOutlineSortAscending size={50} />
                     ) : (
                         <HiOutlineSortDescending size={50} />
