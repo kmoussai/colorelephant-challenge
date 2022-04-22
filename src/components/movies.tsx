@@ -18,9 +18,6 @@ export default function Movies() {
     const { addToFavourites, favourites, removeFromFavourites } =
         useFavourites();
 
-    useEffect(() => {
-        console.log(movies.length);
-    }, [movies]);
     // Detect scrolling to fetch new elements
     const observer = useRef<IntersectionObserver>();
     const lastMovie = useCallback(
